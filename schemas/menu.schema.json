@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "menu",
+  "type": "object",
+  "required": ["version", "days"],
+  "properties": {
+    "version": { "const": 1 },
+    "days": {
+      "type": "object",
+      "patternProperties": {
+        "^[0-9]{4}-[0-9]{2}-[0-9]{2}$": {
+          "type": "object",
+          "required": ["soup", "main", "side", "veg", "dessert", "salad", "allergens", "note"],
+          "properties": {
+            "soup": { "type": "string" },
+            "main": { "type": "string" },
+            "side": { "type": "string" },
+            "veg": { "type": "string" },
+            "dessert": { "type": "string" },
+            "salad": { "type": "boolean" },
+            "kcal": { "type": "integer", "minimum": 0 },
+            "allergens": { "type": "array", "items": { "type": "string" } },
+            "note": { "type": "string" }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

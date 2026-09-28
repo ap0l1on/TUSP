@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "days": {
+    "2026-09-28": { "soup": "Mercimek çorbası", "main": "Tavuk sote", "side": "Pirinç pilavı", "veg": "Nohut yemeği", "dessert": "Sütlaç", "salad": true, "kcal": 850, "allergens": ["gluten", "milk"], "note": "" },
+    "2026-09-29": { "soup": "Ezogelin", "main": "Kıymalı makarna", "side": "Yoğurt", "veg": "Sebze graten", "dessert": "Meyve", "salad": true, "kcal": 820, "allergens": ["gluten", "milk"], "note": "" },
+    "2026-09-30": { "soup": "Şehriye çorbası", "main": "Etli kuru fasulye", "side": "Bulgur pilavı", "veg": "Zeytinyağlı fasulye", "dessert": "Kek", "salad": true, "kcal": 880, "allergens": ["gluten", "egg"], "note": "" },
+    "2026-10-01": { "soup": "Domates çorbası", "main": "Izgara köfte", "side": "Patates", "veg": "Mercimek köfte", "dessert": "Puding", "salad": true, "kcal": 900, "allergens": ["milk"], "note": "" },
+    "2026-10-02": { "soup": "Yayla çorbası", "main": "Balık", "side": "Salata", "veg": "Sebze sote", "dessert": "Helva", "salad": true, "kcal": 780, "allergens": ["fish", "milk"], "note": "" },
+    "2026-10-05": { "soup": "Mercimek çorbası", "main": "Tavuk baget", "side": "Makarna", "veg": "Türlü", "dessert": "Ayran", "salad": true, "kcal": 840, "allergens": ["gluten"], "note": "" },
+    "2026-10-06": { "soup": "Tarhana", "main": "Karnıyarık", "side": "Pilav", "veg": "İmam bayıldı", "dessert": "Komposto", "salad": true, "kcal": 860, "allergens": [], "note": "" },
+    "2026-10-07": { "soup": "Ezogelin", "main": "Mantı", "side": "Yoğurt", "veg": "Su böreği (vejetaryen)", "dessert": "Baklava", "salad": false, "kcal": 950, "allergens": ["gluten", "milk", "egg"], "note": "" },
+    "2026-10-08": { "soup": "Sebze çorbası", "main": "Nohutlu tavuk", "side": "Pirinç pilavı", "veg": "Nohut", "dessert": "Meyve", "salad": true, "kcal": 830, "allergens": [], "note": "" },
+    "2026-10-09": { "soup": "Mercimek çorbası", "main": "Pizza", "side": "Salata", "veg": "Sebzeli pizza", "dessert": "Dondurma", "salad": true, "kcal": 910, "allergens": ["gluten", "milk"], "note": "" },
+    "2026-10-12": { "soup": "Şehriye çorbası", "main": "Et sote", "side": "Bulgur", "veg": "Zeytinyağlı enginar", "dessert": "Sütlaç", "salad": true, "kcal": 870, "allergens": ["milk"], "note": "" },
+    "2026-10-13": { "soup": "Mercimek çorbası", "main": "Fırın tavuk", "side": "Pirinç pilavı", "veg": "Kuru fasulye", "dessert": "Kek", "salad": true, "kcal": 850, "allergens": ["gluten", "milk"], "note": "" }
+  }
+}

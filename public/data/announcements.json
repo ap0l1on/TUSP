@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "announcements": [
+    {
+      "id": "a-acil-1",
+      "title": "Acil: Yarın 5. ders spor salonunda",
+      "body": "Tüm **9. sınıflar** yarın 5. ders için *spor salonuna* gitsin.\n\n- Yoklama salonda alınacak\n- [Spor programı](https://example.com)",
+      "priority": "urgent",
+      "audience": ["all"],
+      "publish": "2026-09-27T07:00:00+03:00",
+      "expires": "2027-01-01T00:00:00+03:00",
+      "pinned": false
+    },
+    {
+      "id": "a-pin-1",
+      "title": "Kantin kartları dağıtıldı",
+      "body": "Kantin kartlarınızı sınıf öğretmeninizden alabilirsiniz.",
+      "priority": "normal",
+      "audience": ["all"],
+      "publish": "2026-09-26T07:00:00+03:00",
+      "expires": "2027-01-01T00:00:00+03:00",
+      "pinned": true
+    },
+    {
+      "id": "a-info-1",
+      "title": "Kütüphane saatleri",
+      "body": "Kütüphane hafta içi 08:00–17:00 açık.",
+      "priority": "info",
+      "audience": ["all"],
+      "publish": "2026-09-25T07:00:00+03:00",
+      "expires": "2027-01-01T00:00:00+03:00",
+      "pinned": false,
+      "eventId": "konf-1"
+    },
+    {
+      "id": "a-future-1",
+      "title": "Gelecek duyuru (gizli)",
+      "body": "Bu duyuru henüz yayınlanmadı.",
+      "priority": "normal",
+      "audience": ["all"],
+      "publish": "2027-06-01T07:00:00+03:00",
+      "expires": "2027-07-01T00:00:00+03:00",
+      "pinned": false
+    },
+    {
+      "id": "a-expired-1",
+      "title": "Eski duyuru",
+      "body": "Süresi doldu.",
+      "priority": "info",
+      "audience": ["all"],
+      "publish": "2026-01-01T07:00:00+03:00",
+      "expires": "2026-02-01T00:00:00+03:00",
+      "pinned": false
+    }
+  ]
+}

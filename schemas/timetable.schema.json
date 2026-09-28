@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "timetable",
+  "type": "object",
+  "required": ["version", "classes"],
+  "properties": {
+    "version": { "const": 1 },
+    "classes": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "patternProperties": {
+          "^[1-5]$": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["p", "subject", "teacher", "room"],
+              "properties": {
+                "p": { "type": "integer", "minimum": 1, "maximum": 12 },
+                "subject": { "type": "string" },
+                "teacher": { "type": "string" },
+                "room": { "type": "string" }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "changes",
+  "type": "object",
+  "required": ["version", "changes"],
+  "properties": {
+    "version": { "const": 1 },
+    "changes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["date", "class", "p", "type"],
+        "properties": {
+          "date": { "type": "string", "format": "date" },
+          "class": { "type": "string" },
+          "p": { "type": "integer", "minimum": 1, "maximum": 12 },
+          "type": { "enum": ["cancelled", "substitute", "room", "moved", "extra"] },
+          "teacher": { "type": "string" },
+          "room": { "type": "string" },
+          "note": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

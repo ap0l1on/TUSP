@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "classes": [
+    { "id": "9A", "label": "9-A", "grade": 9 },
+    { "id": "9B", "label": "9-B", "grade": 9 },
+    { "id": "9C", "label": "9-C", "grade": 9 },
+    { "id": "9D", "label": "9-D", "grade": 9 },
+    { "id": "10A", "label": "10-A", "grade": 10 },
+    { "id": "10B", "label": "10-B", "grade": 10 },
+    { "id": "10C", "label": "10-C", "grade": 10 },
+    { "id": "10D", "label": "10-D", "grade": 10 },
+    { "id": "11A", "label": "11-A", "grade": 11 },
+    { "id": "11B", "label": "11-B", "grade": 11 },
+    { "id": "11C", "label": "11-C", "grade": 11 },
+    { "id": "12A", "label": "12-A", "grade": 12 },
+    { "id": "12B", "label": "12-B", "grade": 12 },
+    { "id": "12C", "label": "12-C", "grade": 12 },
+    { "id": "IB1A", "label": "IB DP1-A", "grade": 11 },
+    { "id": "IB2A", "label": "IB DP2-A", "grade": 12 }
+  ]
+}

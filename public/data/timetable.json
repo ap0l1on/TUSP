@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "classes": {
+    "9A": {
+      "1": [
+        { "p": 1, "subject": "Matematik", "teacher": "", "room": "B-204" },
+        { "p": 2, "subject": "Türk Dili ve Edebiyatı", "teacher": "", "room": "B-204" },
+        { "p": 3, "subject": "Fizik", "teacher": "", "room": "Lab-1" },
+        { "p": 4, "subject": "İngilizce", "teacher": "", "room": "B-204" },
+        { "p": 5, "subject": "Tarih", "teacher": "", "room": "B-204" },
+        { "p": 6, "subject": "Beden Eğitimi", "teacher": "", "room": "Spor Salonu" }
+      ],
+      "2": [
+        { "p": 1, "subject": "Kimya", "teacher": "", "room": "Lab-2" },
+        { "p": 2, "subject": "Matematik", "teacher": "", "room": "B-204" },
+        { "p": 3, "subject": "Coğrafya", "teacher": "", "room": "B-204" },
+        { "p": 4, "subject": "İngilizce", "teacher": "", "room": "B-204" },
+        { "p": 5, "subject": "Din Kültürü", "teacher": "", "room": "B-204" },
+        { "p": 6, "subject": "Görsel Sanatlar", "teacher": "", "room": "Atölye" }
+      ],
+      "3": [
+        { "p": 1, "subject": "Biyoloji", "teacher": "", "room": "Lab-1" },
+        { "p": 2, "subject": "Matematik", "teacher": "", "room": "B-204" },
+        { "p": 3, "subject": "Fizik", "teacher": "", "room": "Lab-1" },
+        { "p": 4, "subject": "Tarih", "teacher": "", "room": "B-204" },
+        { "p": 5, "subject": "İngilizce", "teacher": "", "room": "B-204" },
+        { "p": 6, "subject": "Müzik", "teacher": "", "room": "Müzik Odası" }
+      ],
+      "4": [
+        { "p": 1, "subject": "Türk Dili ve Edebiyatı", "teacher": "", "room": "B-204" },
+        { "p": 2, "subject": "Matematik", "teacher": "", "room": "B-204" },
+        { "p": 3, "subject": "Kimya", "teacher": "", "room": "Lab-2" },
+        { "p": 4, "subject": "Beden Eğitimi", "teacher": "", "room": "Spor Salonu" },
+        { "p": 5, "subject": "Coğrafya", "teacher": "", "room": "B-204" },
+        { "p": 6, "subject": "Rehberlik", "teacher": "", "room": "B-204" }
+      ],
+      "5": [
+        { "p": 1, "subject": "Matematik", "teacher": "", "room": "B-204" },
+        { "p": 2, "subject": "Fizik", "teacher": "", "room": "Lab-1" },
+        { "p": 3, "subject": "İngilizce", "teacher": "", "room": "B-204" },
+        { "p": 4, "subject": "Biyoloji", "teacher": "", "room": "Lab-1" },
+        { "p": 5, "subject": "Tarih", "teacher": "", "room": "B-204" },
+        { "p": 6, "subject": "Seçmeli", "teacher": "", "room": "B-204" },
+        { "p": 7, "subject": "Proje", "teacher": "", "room": "B-204" },
+        { "p": 8, "subject": "Kulüp", "teacher": "", "room": "B-204" },
+        { "p": 9, "subject": "Etüt", "teacher": "", "room": "B-204" }
+      ]
+    },
+    "IB1A": {
+      "1": [
+        { "p": 1, "subject": "Math AA", "teacher": "", "room": "C-101" },
+        { "p": 2, "subject": "English B", "teacher": "", "room": "C-101" },
+        { "p": 3, "subject": "Physics", "teacher": "", "room": "Lab-1" },
+        { "p": 4, "subject": "Turkish A", "teacher": "", "room": "C-101" },
+        { "p": 5, "subject": "Economics", "teacher": "", "room": "C-101" },
+        { "p": 6, "subject": "TOK", "teacher": "", "room": "C-101" }
+      ],
+      "2": [
+        { "p": 1, "subject": "Chemistry", "teacher": "", "room": "Lab-2" },
+        { "p": 2, "subject": "Math AA", "teacher": "", "room": "C-101" },
+        { "p": 3, "subject": "History", "teacher": "", "room": "C-101" },
+        { "p": 4, "subject": "English B", "teacher": "", "room": "C-101" },
+        { "p": 5, "subject": "Biology", "teacher": "", "room": "Lab-1" },
+        { "p": 6, "subject": "CAS", "teacher": "", "room": "C-101" }
+      ],
+      "3": [
+        { "p": 1, "subject": "Physics", "teacher": "", "room": "Lab-1" },
+        { "p": 2, "subject": "Math AA", "teacher": "", "room": "C-101" },
+        { "p": 3, "subject": "Turkish A", "teacher": "", "room": "C-101" },
+        { "p": 4, "subject": "Economics", "teacher": "", "room": "C-101" },
+        { "p": 5, "subject": "English B", "teacher": "", "room": "C-101" },
+        { "p": 6, "subject": "TOK", "teacher": "", "room": "C-101" }
+      ],
+      "4": [
+        { "p": 1, "subject": "Math AA", "teacher": "", "room": "C-101" },
+        { "p": 2, "subject": "Chemistry", "teacher": "", "room": "Lab-2" },
+        { "p": 3, "subject": "History", "teacher": "", "room": "C-101" },
+        { "p": 4, "subject": "Biology", "teacher": "", "room": "Lab-1" },
+        { "p": 5, "subject": "Turkish A", "teacher": "", "room": "C-101" },
+        { "p": 6, "subject": "EE", "teacher": "", "room": "C-101" }
+      ],
+      "5": [
+        { "p": 1, "subject": "Math AA", "teacher": "", "room": "C-101" },
+        { "p": 2, "subject": "Physics", "teacher": "", "room": "Lab-1" },
+        { "p": 3, "subject": "English B", "teacher": "", "room": "C-101" },
+        { "p": 4, "subject": "Economics", "teacher": "", "room": "C-101" },
+        { "p": 5, "subject": "TOK", "teacher": "", "room": "C-101" },
+        { "p": 6, "subject": "CAS", "teacher": "", "room": "C-101" },
+        { "p": 7, "subject": "Study", "teacher": "", "room": "C-101" },
+        { "p": 8, "subject": "Club", "teacher": "", "room": "C-101" },
+        { "p": 9, "subject": "Study", "teacher": "", "room": "C-101" }
+      ]
+    }
+  }
+}

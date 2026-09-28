@@ -1,0 +1,38 @@
+{
+  "name": "tusp",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Student portal for TED Üsküdar: today's lessons, lunch menu, announcements and feedback.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "e2e": "playwright test",
+    "lint": "tsc --noEmit",
+    "validate:data": "tsx scripts/validate-data.ts",
+    "convert:timetable": "tsx scripts/timetable-csv-to-json.ts",
+    "convert:menu": "tsx scripts/menu-csv-to-json.ts",
+    "contrast": "tsx scripts/check-contrast.ts",
+    "screenshots": "playwright test e2e/screenshots.spec.ts"
+  },
+  "dependencies": {
+    "@fontsource/plus-jakarta-sans": "^5.1.0",
+    "dompurify": "^3.2.4",
+    "preact": "^10.26.4"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.1",
+    "@preact/preset-vite": "^2.10.1",
+    "@types/dompurify": "^3.0.5",
+    "@types/node": "^22.10.1",
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.7",
+    "vitest": "^2.1.8"
+  }
+}
