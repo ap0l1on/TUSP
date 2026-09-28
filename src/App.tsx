@@ -4,7 +4,7 @@ import { loadAll, type AllData } from './lib/data';
 import { getClass, setClass, getLang, setLang } from './lib/storage';
 import type { Lang } from './lib/i18n';
 import { t } from './lib/i18n';
-import { Header, Sidebar, TabBar, type Route } from './components/layout';
+import { Header, TopNav, TabBar, type Route } from './components/layout';
 import { ClassPicker } from './components/ClassPicker';
 import { TodayPage } from './pages/Today';
 import { LunchPage } from './pages/Lunch';
@@ -71,8 +71,7 @@ export function App() {
     return (data.classes.classes.find((c) => c.id === classId)?.label ?? classId) + ' ▾';
   }, [classId, data]);
 
-  const toggleLang = () => {
-    const n = lang === 'tr' ? 'en' : 'tr';
+  const setLangBoth = (n: Lang) => {
     setLang(n); setLangState(n);
   };
 
@@ -80,9 +79,9 @@ export function App() {
 
   return (
     <div class="app-shell">
-      <Header lang={lang} classLabel={classId ? label : t(lang, 'header.pickClass')} onPick={() => setPicking(true)} onLang={toggleLang} />
+      <Header lang={lang} classLabel={classId ? label : t(lang, 'header.pickClass')} onPick={() => setPicking(true)} onLang={setLangBoth} />
+      <TopNav route={route.route} lang={lang} />
       <div class="layout">
-        <Sidebar route={route.route} lang={lang} />
         <main class="content" id="main">
           {offline && data && <div class="offline-banner">{t(lang, 'state.offline', { time: nowUpdatedLabel(data.fetchedAt, lang) })}</div>}
           {!data && !error && (

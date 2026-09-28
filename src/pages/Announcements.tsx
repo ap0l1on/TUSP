@@ -4,7 +4,7 @@ import type { AllData } from '../lib/data';
 import { gradeOf } from '../lib/data';
 import { t, type Lang } from '../lib/i18n';
 import { relativeTime, visibleAnnouncements, eventOnDay } from '../lib/announcements';
-import { renderMarkdown } from '../lib/markdown';
+import { renderMarkdown, plainPreview } from '../lib/markdown';
 import { announcementICS, downloadICS } from '../lib/ics';
 import { istanbulISODate, weekdayOfISO, addDaysISO } from '../lib/time';
 
@@ -43,13 +43,13 @@ export function AnnouncementsPage({ data, lang, classId, now, sub }: {
           {list.length === 0 && <div class="card">{t(lang, 'ann.empty')}</div>}
           {list.map((a) => (
             <a key={a.id} href={`#/duyuru/${a.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-              <article class={`card${a.priority === 'urgent' ? ' urgent' : ''}`}>
-                <div class="row"><span class={`tag${a.priority === 'urgent' ? ' red' : a.priority === 'normal' ? ' blue' : ''}`}>{a.priority}</span>
-                  <span class="muted grow" style={{ fontSize: 12 }}>{relativeTime(a.publish, now, lang)}</span>
-                  {a.pinned && <span class="tag">📌</span>}
+              <article class={`card ann-card pri-stripe ${a.priority === 'urgent' ? 'urgent-p' : a.priority === 'normal' ? 'normal-p' : ''}`}>
+                <div class="row"><span class={`tag${a.priority === 'urgent' ? ' red' : a.priority === 'normal' ? ' blue' : ''}`}>{a.priority === 'urgent' ? (lang === 'tr' ? 'Acil' : 'Urgent') : a.priority === 'normal' ? (lang === 'tr' ? 'Duyuru' : 'Notice') : (lang === 'tr' ? 'Bilgi' : 'Info')}</span>
+                  <span class="muted grow" style={{ fontSize: 12 }}><time>{relativeTime(a.publish, now, lang)}</time></span>
+                  {a.pinned && <span class="tag">📌 {lang === 'tr' ? 'Sabit' : 'Pinned'}</span>}
                 </div>
                 <h3 style={{ margin: '8px 0 4px' }}>{a.title}</h3>
-                <p class="muted" style={{ margin: 0, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{a.body.slice(0, 140)}</p>
+                <p class="muted" style={{ margin: 0, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{plainPreview(a.body)}</p>
               </article>
             </a>
           ))}

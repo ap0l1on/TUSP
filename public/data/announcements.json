@@ -3,8 +3,8 @@
   "announcements": [
     {
       "id": "a-acil-1",
-      "title": "Acil: Yarın 5. ders spor salonunda",
-      "body": "Tüm **9. sınıflar** yarın 5. ders için *spor salonuna* gitsin.\n\n- Yoklama salonda alınacak\n- [Spor programı](https://example.com)",
+      "title": "Yarın 5. ders spor salonunda",
+      "body": "Tüm **9. sınıflar** yarın 5. ders için *spor salonuna* gitsin.\n\n- Yoklama salonda alınacak\n- Eşofman giymeyi unutma",
       "priority": "urgent",
       "audience": ["all"],
       "publish": "2026-09-27T07:00:00+03:00",
@@ -20,6 +20,17 @@
       "publish": "2026-09-26T07:00:00+03:00",
       "expires": "2027-01-01T00:00:00+03:00",
       "pinned": true
+    },
+    {
+      "id": "a-kulup",
+      "title": "Kulüp tanıtım fuarı Çarşamba",
+      "body": "Çarşamba öğle arası **spor salonunda** tüm kulüpler stant açıyor. Katılmak için formu doldurman yeterli.",
+      "priority": "normal",
+      "audience": ["all"],
+      "publish": "2026-09-28T07:00:00+03:00",
+      "expires": "2027-01-01T00:00:00+03:00",
+      "pinned": false,
+      "eventId": "kulup-tanitim"
     },
     {
       "id": "a-info-1",

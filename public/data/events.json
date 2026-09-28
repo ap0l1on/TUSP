@@ -1,11 +1,12 @@
 {
   "version": 1,
   "events": [
-    { "id": "kirmizi-gun", "kind": "dress_code", "date": "2026-09-29", "title": "Yarın herkes 23 Nisan için kırmızı giysin", "audience": ["all"] },
-    { "id": "23nisan-dress", "kind": "dress_code", "date": "2026-04-22", "title": "23 Nisan: herkes kırmızı giysin", "audience": ["all"] },
+    { "id": "hafta-acilisi", "kind": "ceremony", "date": "2026-09-28", "title": "Hafta açılışı töreni", "place": "Bahçe", "audience": ["all"] },
+    { "id": "kulup-tanitim", "kind": "other", "date": "2026-09-30", "start": "12:30", "end": "13:10", "title": "Kulüp tanıtım fuarı", "place": "Spor salonu", "audience": ["all"] },
+    { "id": "spor-gunu", "kind": "dress_code", "date": "2026-10-02", "title": "Spor günü: eşofmanla gel", "audience": ["all"] },
+    { "id": "veli-top", "kind": "conference", "date": "2026-10-03", "start": "10:00", "end": "12:00", "title": "Veli bilgilendirme toplantısı", "place": "Konferans salonu", "audience": ["all"] },
     { "id": "ara-tatil", "kind": "holiday", "from": "2026-11-09", "to": "2026-11-13", "title": "Ara tatil" },
     { "id": "konf-1", "kind": "conference", "date": "2026-10-20", "start": "11:15", "end": "13:10", "replacesPeriods": [5, 6], "title": "Konferans: Kariyer Günü", "place": "Konferans salonu", "audience": ["grade:11", "grade:12"] },
-    { "id": "sinav-mat", "kind": "exam", "date": "2026-10-15", "title": "Matematik sınavı (9. sınıflar)", "audience": ["grade:9"] },
-    { "id": "egu-sabah", "kind": "ceremony", "date": "2026-09-28", "title": "Hafta açılışı", "audience": ["all"] }
+    { "id": "sinav-mat", "kind": "exam", "date": "2026-10-15", "title": "Matematik sınavı (9. sınıflar)", "audience": ["grade:9"] }
   ]
 }

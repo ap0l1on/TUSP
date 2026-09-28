@@ -32,3 +32,15 @@ export function renderMarkdown(src: string): string {
 export function sanitize(html: string): string {
   return DOMPurify.sanitize(html, { ALLOWED_TAGS: ['p', 'ul', 'li', 'strong', 'em', 'a'], ALLOWED_ATTR: ['href', 'rel'] });
 }
+
+// Plain-text preview for cards/banners: strip markdown syntax.
+export function plainPreview(src: string, max = 140): string {
+  const first = src.split('\n')[0] ?? '';
+  return first
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$1')
+    .replace(/\*\*([^*]+)\*\*/g, '$1')
+    .replace(/(^|\W)\*([^*\n]+)\*/g, '$1$2')
+    .replace(/^#+\s*/, '')
+    .trim()
+    .slice(0, max);
+}

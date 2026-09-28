@@ -23,7 +23,7 @@ export function ClassPicker({ classes, lang, onDone, full }: {
   const body = (
     <div class={full ? 'picker-card' : 'card'}>
       <div class="row" style={{ marginBottom: 4 }}>
-        <img src={`${import.meta.env.BASE_URL}logo.png`} alt="" width={44} height={44} style={{ borderRadius: '50%', background: '#fff', objectFit: 'cover' }} />
+        <img src={`${import.meta.env.BASE_URL}logo.png`} alt="" width={44} height={44} style={{ borderRadius: '50%', background: '#fff', objectFit: 'cover' }} onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
         <h2 style={{ margin: 0 }}>{t(lang, 'classPicker.title')}</h2>
       </div>
       <div class="muted">{t(lang, 'classPicker.subtitle')}</div>

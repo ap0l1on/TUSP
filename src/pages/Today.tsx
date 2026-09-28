@@ -6,6 +6,7 @@ import { t, type Lang } from '../lib/i18n';
 import { addDaysISO, formatTRDate, istanbulISODate, nowUpdatedLabel, parseHM } from '../lib/time';
 import { bellsForDate, computeNow, holidayFor, mergeDay } from '../lib/today';
 import { visibleAnnouncements } from '../lib/announcements';
+import { plainPreview } from '../lib/markdown';
 import { getDismissed, dismiss } from '../lib/storage';
 
 export function TodayPage({ data, lang, classId, now }: { data: AllData; lang: Lang; classId: string; now: Date }) {
@@ -37,31 +38,38 @@ export function TodayPage({ data, lang, classId, now }: { data: AllData; lang: L
   const state = computeNow(now, iso, merged.rows, merged.holiday, dish);
 
   const onDismiss = (id: string) => { dismiss(id); setDismissed(getDismissed()); };
+  const classLabel = data.classes.classes.find((c) => c.id === classId)?.label ?? classId;
 
   return (
     <div class="fade">
-      <div class="dateline"><time>{formatTRDate(iso, lang)}</time></div>
+      <div class="dateline"><time>{formatTRDate(iso, lang)}</time><span class="sub">{classLabel}</span></div>
 
       {urgents.map((a) => (
         <div class="card urgent" key={a.id} role="alert">
-          <div class="row"><strong class="grow">{a.title}</strong>
+          <div class="row"><span class="overline red">{a.priority === 'urgent' ? (lang === 'tr' ? 'Acil' : 'Urgent') : a.priority}</span>
+            <span class="grow" />
             <button class="btn" onClick={() => onDismiss(a.id)} aria-label={t(lang, 'urgent.dismiss')}>✕</button>
           </div>
-          <div><a href={`#/duyuru/${a.id}`}>{a.title}</a></div>
+          <div class="now-big">{a.title}</div>
+          <div class="muted" style={{ marginTop: 4 }}>{plainPreview(a.body)}</div>
+          <div style={{ marginTop: 8 }}><a href={`#/duyuru/${a.id}`}>{lang === 'tr' ? 'Detay →' : 'Details →'}</a></div>
         </div>
       ))}
 
-      <section class="card" aria-live="polite" aria-label={t(lang, 'today.now')}>
-        <div class="nowcard-header"><strong>{t(lang, 'today.now')}</strong></div>
-        <NowBody state={state} lang={lang} iso={iso} tomorrowISO={tomorrowISO} data={data} />
+      <section class="card nowcard" aria-live="polite" aria-label={t(lang, 'today.now')}>
+        <div class="nowcard-header"><span class="live-dot" aria-hidden="true" /><strong>{t(lang, 'today.now')}</strong></div>
+        <div class="nowcard-body">
+          <NowBody state={state} lang={lang} iso={iso} tomorrowISO={tomorrowISO} data={data} />
+        </div>
       </section>
 
       <section class="card" aria-label={t(lang, 'today.timeline')}>
-        <h3 style={{ margin: '0 0 8px' }}>{t(lang, 'today.timeline')}</h3>
+        <span class="overline">{t(lang, 'today.timeline')}</span>
+        <h3 class="section">{formatTRDate(iso, lang)}</h3>
         {merged.holiday && <div class="tag red">{merged.holiday.title}</div>}
         {!merged.hasTimetable && merged.holiday == null && <div class="muted">{t(lang, 'today.noTimetable')}</div>}
         {merged.chips.map((e) => (
-          <div class="tag blue" key={e.id} style={{ marginRight: 6 }}>{e.title}</div>
+          <span class="tag blue" key={e.id} style={{ marginRight: 6 }}>{e.title}</span>
         ))}
         <Timeline iso={iso} now={now} rows={merged.rows} lang={lang} />
       </section>
@@ -128,14 +136,18 @@ function firstLessonOf(data: AllData, iso: string): string {
 }
 
 import type { MergedRow } from '../lib/today';
+function fmtMin(m: number): string {
+  return `${String(Math.floor(m / 60)).padStart(2, '0')}:${String(m % 60).padStart(2, '0')}`;
+}
 function NowLesson({ state, lang }: { state: Extract<ReturnType<typeof computeNow>, { kind: 'lesson' }>; lang: Lang }) {
   const total = Math.max(1, state.endMin - state.startMin);
   const left = Math.max(0, state.endMin - currentMin());
   const pct = Math.min(100, Math.max(0, ((total - left) / total) * 100));
   return (
     <div>
-      <div><strong>{state.n}. ders · {state.subject}{state.room ? ` · ${state.room}` : ''}</strong></div>
-      <div class="muted">{t(lang, 'today.minLeft', { n: left })}</div>
+      <div class="now-big">{state.n}. ders · {state.subject}</div>
+      {state.room && <div style={{ marginTop: 4 }}><span class="room-chip">📍 {state.room}</span></div>}
+      <div class="muted" style={{ marginTop: 6 }}>{t(lang, 'today.minLeft', { n: left })} · <time>{fmtMin(state.startMin)}–{fmtMin(state.endMin)}</time></div>
       <div class="progress" role="progressbar" aria-valuenow={Math.round(pct)} aria-valuemin={0} aria-valuemax={100}><div style={{ width: `${pct}%` }} /></div>
     </div>
   );
@@ -151,19 +163,22 @@ function Timeline({ iso, now, rows, lang }: { iso: string; now: Date; rows: Merg
     <div>
       {rows.map((r, i) => {
         const past = parseHM(r.end) <= mins;
-        if (r.kind === 'break') return <div key={r.key} class={`timeline-item${past ? ' dim' : ''}${i === currentIdx ? ' highlight' : ''}`}><span class="ptime">{r.start}–{r.end}</span><span class="muted">{t(lang, 'today.break', { n: parseHM(r.end) - parseHM(r.start) }).split('·')[0]}</span></div>;
-        if (r.kind === 'lunch') return <div key={r.key} class={`timeline-item${past ? ' dim' : ''}${i === currentIdx ? ' highlight' : ''}`}><span class="ptime">{r.start}–{r.end}</span><span><strong>{t(lang, 'today.lunch')}</strong></span></div>;
-        if (r.kind === 'event') return <div key={r.key} class="timeline-item"><span class="ptime">{r.start}–{r.end}</span><span><strong>{r.eventTitle}</strong>{r.place ? <span class="muted"> · {r.place}</span> : null}</span></div>;
+        const cls = `timeline-item${past ? ' dim' : ''}${i === currentIdx ? ' current' : ''}`;
+        if (r.kind === 'break') return <div key={r.key} class={cls}><span class="ptime">{r.start}–{r.end}</span><span class="muted">☕ {t(lang, 'today.break', { n: parseHM(r.end) - parseHM(r.start) }).split('·')[0]}</span></div>;
+        if (r.kind === 'lunch') return <div key={r.key} class={cls}><span class="ptime">{r.start}–{r.end}</span><span><strong>🍽 {t(lang, 'today.lunch')}</strong></span></div>;
+        if (r.kind === 'event') return <div key={r.key} class="timeline-item current"><span class="ptime">{r.start}–{r.end}</span><span><strong>🎤 {r.eventTitle}</strong>{r.place ? <span class="muted"> · {r.place}</span> : null}</span></div>;
         return (
-          <div key={r.key} class={`timeline-item${past ? ' dim' : ''}${i === currentIdx ? ' highlight' : ''}`}>
+          <div key={r.key} class={cls}>
+            <span class="pnum">{r.n}</span>
             <span class="ptime">{r.start}–{r.end}</span>
             <span class={r.status === 'cancelled' ? 'strike' : ''}>
-              <strong>{r.n}. ders · {r.subject}</strong>
-              {r.room ? <> · {r.status === 'room' && r.oldRoom ? <><span class="strike muted">{r.oldRoom}</span> <strong>{r.room}</strong></> : r.room}</> : null}
-              {r.status === 'cancelled' && <span class="tag red" style={{ marginLeft: 6 }}>{t(lang, 'today.cancelled')}</span>}
-              {r.status === 'substitute' && <span class="tag blue" style={{ marginLeft: 6 }}>{t(lang, 'today.substitute', { teacher: r.teacher ?? '' })}</span>}
-              {r.status === 'room' && <span class="tag blue" style={{ marginLeft: 6 }}>{r.room}</span>}
-              {(r.status === 'moved' || r.status === 'extra') && r.note ? <span class="tag" style={{ marginLeft: 6 }}>{r.note}</span> : null}
+              <strong>{r.subject}</strong>
+              {r.room ? <> <span class="room-chip">{r.status === 'room' && r.oldRoom ? <><span class="strike muted">{r.oldRoom}</span> → <strong>{r.room}</strong></> : r.room}</span></> : null}
+              <br />
+              {r.status === 'cancelled' && <span class="tag red">{t(lang, 'today.cancelled')}</span>}
+              {r.status === 'substitute' && <span class="tag blue">{t(lang, 'today.substitute', { teacher: r.teacher ?? '' })}</span>}
+              {(r.status === 'moved' || r.status === 'extra') && r.note ? <span class="tag green">{r.note}</span> : null}
+              {r.teacher && !r.status ? <span class="muted"> · {r.teacher}</span> : null}
             </span>
           </div>
         );

@@ -60,13 +60,14 @@ function DayCard({ iso, data, lang }: { iso: string; data: AllData; lang: Lang }
   void eventOnDay;
   return (
     <div class="card">
-      <div><time class="muted">{iso}</time></div>
-      <ul style={{ listStyle: 'none', padding: 0, margin: '8px 0' }}>
-        <li>🍲 <strong>{t(lang, 'lunch.soup')}:</strong> {day.soup}</li>
-        <li>🍛 <strong>{t(lang, 'lunch.main')}:</strong> {day.main}</li>
-        <li>🥗 <strong>{t(lang, 'lunch.side')}:</strong> {day.side}</li>
-        <li>🌱 <strong>{t(lang, 'lunch.veg')}:</strong> {day.veg}</li>
-        <li>🍮 <strong>{t(lang, 'lunch.dessert')}:</strong> {day.dessert}</li>
+      <span class="overline">🍽 {t(lang, 'lunch.title')}</span>
+      <h3 class="section"><time>{iso}</time></h3>
+      <ul class="menu-list">
+        <li><span class="menu-ico">🍲</span><span><strong>{t(lang, 'lunch.soup')}</strong><br />{day.soup}</span></li>
+        <li><span class="menu-ico">🍛</span><span><strong>{t(lang, 'lunch.main')}</strong><br />{day.main}</span></li>
+        <li><span class="menu-ico">🥗</span><span><strong>{t(lang, 'lunch.side')}</strong><br />{day.side}</span></li>
+        <li><span class="menu-ico">🌱</span><span><strong>{t(lang, 'lunch.veg')}</strong><br />{day.veg}</span></li>
+        <li><span class="menu-ico">🍮</span><span><strong>{t(lang, 'lunch.dessert')}</strong><br />{day.dessert}</span></li>
       </ul>
       {day.salad && <span class="tag">{t(lang, 'lunch.salad')}</span>}
       <div style={{ marginTop: 8 }}>

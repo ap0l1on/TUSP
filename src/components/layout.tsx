@@ -4,55 +4,81 @@ import { Icon } from './icons';
 
 export type Route = 'today' | 'lunch' | 'ann' | 'feedback' | 'detail' | 'calendar';
 
+function hideBroken(e: Event): void {
+  const img = e.target as HTMLImageElement;
+  img.style.display = 'none';
+}
+
+export function Logo({ size = 38 }: { size?: number }) {
+  return (
+    <img
+      class="brand-logo"
+      src={`${import.meta.env.BASE_URL}logo.png`}
+      alt="TED Üsküdar Koleji logosu"
+      width={size}
+      height={size}
+      onError={hideBroken}
+    />
+  );
+}
+
 export function Header({ lang, classLabel, onPick, onLang }: {
-  lang: Lang; classLabel: string; onPick: () => void; onLang: () => void;
+  lang: Lang; classLabel: string; onPick: () => void; onLang: (l: Lang) => void;
 }) {
   return (
     <header class="header">
-      <a class="brand" href="#/" aria-label="TUSP">
-        <img class="brand-logo" src={`${import.meta.env.BASE_URL}logo.png`} alt="TED Üsküdar Koleji logosu" />
-        <span class="wordmark">TUSP</span>
-      </a>
-      <div class="header-spacer" />
-      <button class="class-chip" onClick={onPick} aria-label={t(lang, 'header.pickClass')}>
-        {classLabel} ▾
-      </button>
-      <button class="lang-toggle" onClick={onLang} aria-label="TR/EN">
-        {lang === 'tr' ? 'EN' : 'TR'}
-      </button>
+      <div class="header-inner">
+        <a class="brand" href="#/" aria-label="TUSP">
+          <Logo />
+          <span class="wordmark">TUSP</span>
+        </a>
+        <div class="header-spacer" />
+        <button class="class-chip" onClick={onPick} aria-label={t(lang, 'header.pickClass')}>
+          {classLabel} ▾
+        </button>
+        <div class="lang-seg" role="group" aria-label="TR/EN">
+          <button aria-pressed={lang === 'tr'} onClick={() => onLang('tr')}>TR</button>
+          <button aria-pressed={lang === 'en'} onClick={() => onLang('en')}>EN</button>
+        </div>
+      </div>
     </header>
   );
 }
 
-export function TabBar({ route, lang }: { route: Route; lang: Lang }) {
-  const items: { r: Route; href: string; label: string; icon: string }[] = [
-    { r: 'today', href: '#/', label: t(lang, 'nav.today'), icon: 'today' },
-    { r: 'lunch', href: '#/yemek', label: t(lang, 'nav.lunch'), icon: 'lunch' },
-    { r: 'ann', href: '#/duyurular', label: t(lang, 'nav.announcements'), icon: 'bell' },
-    { r: 'feedback', href: '#/geri-bildirim', label: t(lang, 'nav.feedback'), icon: 'chat' },
-  ];
+const NAV: { r: Route; href: string; key: string; icon: string }[] = [
+  { r: 'today', href: '#/', key: 'nav.today', icon: 'today' },
+  { r: 'lunch', href: '#/yemek', key: 'nav.lunch', icon: 'lunch' },
+  { r: 'ann', href: '#/duyurular', key: 'nav.announcements', icon: 'bell' },
+  { r: 'feedback', href: '#/geri-bildirim', key: 'nav.feedback', icon: 'chat' },
+];
+
+function isActive(route: Route, item: Route): boolean {
+  if (route === item) return true;
+  if (item === 'ann' && (route === 'detail' || route === 'calendar')) return true;
+  return false;
+}
+
+export function TopNav({ route, lang }: { route: Route; lang: Lang }) {
   return (
-    <nav class="tabbar" aria-label="nav">
-      {items.map((it) => (
-        <a key={it.r} href={it.href} class={route === it.r || (it.r === 'ann' && (route === 'detail' || route === 'calendar')) ? 'active' : ''}>
-          <Icon name={it.icon} />{it.label}
-        </a>
-      ))}
+    <nav class="topnav" aria-label="nav">
+      <div class="topnav-inner">
+        {NAV.map((it) => (
+          <a key={it.r} href={it.href} class={isActive(route, it.r) ? 'active' : ''}>
+            <Icon name={it.icon} />{t(lang, it.key)}
+          </a>
+        ))}
+      </div>
     </nav>
   );
 }
 
-export function Sidebar({ route, lang }: { route: Route; lang: Lang }) {
-  const items = [
-    { r: 'today', href: '#/', label: t(lang, 'nav.today') },
-    { r: 'lunch', href: '#/yemek', label: t(lang, 'nav.lunch') },
-    { r: 'ann', href: '#/duyurular', label: t(lang, 'nav.announcements') },
-    { r: 'feedback', href: '#/geri-bildirim', label: t(lang, 'nav.feedback') },
-  ];
+export function TabBar({ route, lang }: { route: Route; lang: Lang }) {
   return (
-    <nav class="sidebar" aria-label="nav">
-      {items.map((it) => (
-        <a key={it.r} href={it.href} class={route === it.r ? 'active' : ''}>{it.label}</a>
+    <nav class="tabbar" aria-label="nav">
+      {NAV.map((it) => (
+        <a key={it.r} href={it.href} class={isActive(route, it.r) ? 'active' : ''}>
+          <Icon name={it.icon} />{t(lang, it.key)}
+        </a>
       ))}
     </nav>
   );

@@ -23,8 +23,8 @@ Tüm dosyalarda `"version": 1` kalmalı. Yanlış düzenleme build'i durdurur, y
 ```json
 {
   "id": "a-2026-10-14-1",
-  "title": "Yarın herkes kırmızı giysin",
-  "body": "23 Nisan için **kırmızı** giyiyoruz.",
+  "title": "Cuma spor günü: eşofmanla gel",
+  "body": "Cuma günü **eşofmanla** geliyoruz.",
   "priority": "urgent",
   "audience": ["all"],
   "publish": "2026-10-13T07:00:00+03:00",

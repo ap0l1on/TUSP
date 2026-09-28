@@ -74,7 +74,7 @@ test('feedback shows iframe, TR/EN toggle works, no CSP errors', async ({ page }
   await page.goto('./#/geri-bildirim');
   await pick9A(page);
   await expect(page.locator('iframe.fb').or(page.getByText(/yakında|coming soon/i))).toBeVisible({ timeout: 15000 });
-  await page.getByRole('button', { name: 'TR/EN' }).click();
+  await page.getByRole('button', { name: 'EN', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Feedback' }).or(page.getByRole('heading', { name: 'Geri bildirim' }))).toBeVisible();
   expect(errors.filter((e) => e.includes('Content Security Policy')).length).toBe(0);
 });

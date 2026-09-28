@@ -47,6 +47,17 @@ describe('csv converters', () => {
   });
 });
 
+describe('markdown preview', () => {
+  it('strips markdown syntax for card previews', async () => {
+    const { plainPreview } = await import('../src/lib/markdown');
+    expect(plainPreview('Tüm **9. sınıflar** yarın *spor salonuna* gitsin.')).toBe(
+      'Tüm 9. sınıflar yarın spor salonuna gitsin.',
+    );
+    expect(plainPreview('[Spor programı](https://example.com)')).toBe('Spor programı');
+    expect(plainPreview('First line\n- second')).toBe('First line');
+  });
+});
+
 describe('i18n', () => {
   it('every key exists in both languages', () => {
     const { missingInEn, missingInTr } = missingKeys();
