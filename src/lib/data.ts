@@ -12,7 +12,7 @@ export interface AllData {
   fetchedAt: Date;
 }
 
-const BASE = import.meta.env.BASE_URL || '/tusp/';
+const BASE = import.meta.env.BASE_URL || '/TUSP/';
 
 async function getJSON<T>(path: string): Promise<T> {
   const res = await fetch(`${BASE}data/${path}`, { cache: 'no-cache' });

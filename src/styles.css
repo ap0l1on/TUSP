@@ -46,6 +46,8 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--blue); outline-
 }
 .wordmark { font-weight: 700; letter-spacing: -0.04em; font-size: 22px; line-height: 1; text-decoration: none; color: var(--text-inv); }
 .wordmark::after { content: ""; display: block; height: 3px; width: 44px; background: var(--red); border-radius: 2px; margin-top: 3px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; min-height: 48px; }
+.brand-logo { width: 36px; height: 36px; border-radius: 50%; background: #fff; object-fit: cover; }
 .class-chip, .lang-toggle {
   min-height: 48px; display: inline-flex; align-items: center; gap: 6px;
   background: var(--bg-3); color: var(--text-inv); border: 1px solid rgba(255,255,255,.12);

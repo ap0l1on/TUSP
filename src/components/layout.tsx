@@ -9,7 +9,10 @@ export function Header({ lang, classLabel, onPick, onLang }: {
 }) {
   return (
     <header class="header">
-      <a class="wordmark" href="#/" aria-label="TUSP">TUSP</a>
+      <a class="brand" href="#/" aria-label="TUSP">
+        <img class="brand-logo" src={`${import.meta.env.BASE_URL}logo.png`} alt="TED Üsküdar Koleji logosu" />
+        <span class="wordmark">TUSP</span>
+      </a>
       <div class="header-spacer" />
       <button class="class-chip" onClick={onPick} aria-label={t(lang, 'header.pickClass')}>
         {classLabel} ▾

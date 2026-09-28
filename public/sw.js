@@ -1,6 +1,6 @@
 /* TUSP service worker: cache-first for app shell, network-first for /data with offline fallback + last-update note. */
-const CACHE = 'tusp-v1';
-const APP = ['/tusp/', '/tusp/index.html', '/tusp/manifest.webmanifest', '/tusp/favicon.svg'];
+const CACHE = 'TUSP-v1';
+const APP = ['/TUSP/', '/TUSP/index.html', '/TUSP/manifest.webmanifest', '/TUSP/logo.png'];
 
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(APP)).then(() => self.skipWaiting()));
@@ -13,7 +13,7 @@ self.addEventListener('activate', (e) => {
 self.addEventListener('fetch', (e) => {
   const url = new URL(e.request.url);
   if (e.request.method !== 'GET') return;
-  if (url.pathname.startsWith('/tusp/data/')) {
+  if (url.pathname.startsWith('/TUSP/data/')) {
     e.respondWith(
       fetch(e.request, { cache: 'no-cache' })
         .then((res) => {
@@ -30,6 +30,6 @@ self.addEventListener('fetch', (e) => {
       const copy = res.clone();
       caches.open(CACHE).then((c) => c.put(e.request, copy));
       return res;
-    }).catch(() => caches.match('/tusp/index.html'))),
+    }).catch(() => caches.match('/TUSP/index.html'))),
   );
 });

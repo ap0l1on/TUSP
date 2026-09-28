@@ -5,12 +5,12 @@ export default defineConfig({
   fullyParallel: true,
   retries: 0,
   use: {
-    baseURL: 'http://127.0.0.1:4173/tusp/',
+    baseURL: 'http://127.0.0.1:4173/TUSP/',
     trace: 'retain-on-failure',
   },
   webServer: {
     command: 'npm run preview -- --port 4173 --strictPort --host 127.0.0.1',
-    url: 'http://127.0.0.1:4173/tusp/',
+    url: 'http://127.0.0.1:4173/TUSP/',
     reuseExistingServer: true,
     timeout: 60_000,
   },

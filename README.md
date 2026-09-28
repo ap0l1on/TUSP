@@ -2,7 +2,7 @@
 
 Student portal for TED Üsküdar: today's lessons, lunch menu, announcements and feedback.
 
-Live: `https://ap0l1on.github.io/tusp/`
+Live: `https://ap0l1on.github.io/TUSP/`
 
 ## Features
 - **Bugün (Today):** today's lessons for your class, live current lesson, last-minute changes, today's events. Istanbul time always.

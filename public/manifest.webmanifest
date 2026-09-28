@@ -1,15 +1,15 @@
 {
   "name": "TUSP — TED Üsküdar Öğrenci Portalı",
   "short_name": "TUSP",
-  "start_url": "/tusp/",
-  "scope": "/tusp/",
+  "start_url": "/TUSP/",
+  "scope": "/TUSP/",
   "display": "standalone",
   "background_color": "#16264A",
   "theme_color": "#16264A",
   "lang": "tr",
   "icons": [
-    { "src": "/tusp/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "/tusp/icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
-    { "src": "/tusp/icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    { "src": "/TUSP/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/TUSP/icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/TUSP/icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ]
 }

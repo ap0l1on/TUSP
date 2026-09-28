@@ -5,7 +5,7 @@ import preact from '@preact/preset-vite';
 const cfBeacon = `<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "519b97ca534c48e6aff6d6298a48187f", "spa": false}'></script><!-- End Cloudflare Web Analytics -->`;
 
 export default defineConfig(({ mode }) => ({
-  base: '/tusp/',
+  base: '/TUSP/',
   plugins: [
     preact(),
     {
