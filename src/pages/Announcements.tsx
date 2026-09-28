@@ -25,6 +25,10 @@ export function AnnouncementsPage({ data, lang, classId, now, sub }: {
 
   return (
     <div class="fade">
+      <div class="hero">
+        <span class="hero-kicker">📢 {t(lang, sub === 'calendar' ? 'nav.calendar' : 'nav.announcements')}</span>
+        <h1 class="hero-date">{t(lang, sub === 'calendar' ? 'nav.calendar' : 'nav.announcements')}</h1>
+      </div>
       <div class="row wrap" style={{ marginBottom: 12 }}>
         <a class={`chip${sub === 'list' ? ' selected' : ''}`} href="#/duyurular">{t(lang, 'nav.announcements')}</a>
         <a class={`chip${sub === 'calendar' ? ' selected' : ''}`} href="#/takvim">{t(lang, 'nav.calendar')}</a>

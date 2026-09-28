@@ -2,7 +2,7 @@ import { h } from 'preact';
 import { useMemo, useState } from 'preact/hooks';
 import type { AllData } from '../lib/data';
 import { t, type Lang } from '../lib/i18n';
-import { addDaysISO, istanbulISODate, weekdayOfISO } from '../lib/time';
+import { addDaysISO, formatTRDate, istanbulISODate, weekdayOfISO } from '../lib/time';
 import { holidayFor } from '../lib/today';
 import { eventOnDay } from '../lib/announcements';
 
@@ -21,6 +21,10 @@ export function LunchPage({ data, lang, now }: { data: AllData; lang: Lang; now:
 
   return (
     <div class="fade">
+      <div class="hero">
+        <span class="hero-kicker">🍽 {t(lang, 'nav.lunch')}</span>
+        <h1 class="hero-date"><time>{formatTRDate(sel, lang)}</time></h1>
+      </div>
       <div class="card notice-red"><strong>{t(lang, 'lunch.notice')}</strong></div>
       <div class="row wrap" style={{ marginBottom: 12 }}>
         <button class={`chip${sel === todayISO ? ' selected' : ''}`} onClick={() => { setSel(todayISO); setWeekStart(mondayOf(todayISO)); }}>{t(lang, 'lunch.today')}</button>

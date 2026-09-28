@@ -6,10 +6,13 @@ export function FeedbackPage({ data, lang }: { data: AllData; lang: Lang }) {
   const url = data.feedback.formUrl?.trim() ?? '';
   return (
     <div class="fade">
+      <div class="hero">
+        <span class="hero-kicker">💬 {t(lang, 'fb.title')}</span>
+        <h1 class="hero-date">{t(lang, 'fb.title')}</h1>
+        <div class="hero-sub">{t(lang, 'fb.intro')}</div>
+      </div>
       <div class="card">
-        <h2 style={{ marginTop: 0 }}>{t(lang, 'fb.title')}</h2>
-        <p>{t(lang, 'fb.intro')}</p>
-        <strong>{t(lang, 'fb.rulesTitle')}</strong>
+        <span class="overline">{t(lang, 'fb.rulesTitle')}</span>
         <ul>
           <li>{t(lang, 'fb.rule1')}</li>
           <li>{t(lang, 'fb.rule2')}</li>

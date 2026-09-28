@@ -42,7 +42,11 @@ export function TodayPage({ data, lang, classId, now }: { data: AllData; lang: L
 
   return (
     <div class="fade">
-      <div class="dateline"><time>{formatTRDate(iso, lang)}</time><span class="sub">{classLabel}</span></div>
+      <div class="hero">
+        <span class="hero-kicker">{classLabel}</span>
+        <h1 class="hero-date"><time>{formatTRDate(iso, lang)}</time></h1>
+        <div class="hero-sub">{lang === 'tr' ? 'İstanbul saatiyle · canlı' : 'Istanbul time · live'}</div>
+      </div>
 
       {urgents.map((a) => (
         <div class="card urgent" key={a.id} role="alert">
@@ -83,7 +87,7 @@ export function TodayPage({ data, lang, classId, now }: { data: AllData; lang: L
         )}
       </section>
 
-      <div class="muted" style={{ fontSize: 12 }}>{t(lang, 'state.updated', { time: nowUpdatedLabel(data.fetchedAt, lang) })}</div>
+      <div class="updated-note">{t(lang, 'state.updated', { time: nowUpdatedLabel(data.fetchedAt, lang) })}</div>
     </div>
   );
 }
