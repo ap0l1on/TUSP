@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import preact from '@preact/preset-vite';
 
 // Cloudflare beacon injected only for production builds.
-const cfBeacon = `<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "519b97ca534c48e6aff6d6298a48187f", "spa": false}'></script><!-- End Cloudflare Web Analytics -->`;
+const cfBeacon = `<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "519b97ca534c48e6aff6d6298a48187f", "spa": true}'></script><!-- End Cloudflare Web Analytics -->`;
 
 export default defineConfig(({ mode }) => ({
   base: '/TUSP/',
