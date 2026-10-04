@@ -1,12 +1,57 @@
 {
   "version": 1,
   "changes": [
-    { "date": "2026-10-13", "class": "9A", "p": 3, "type": "cancelled", "note": "" },
-    { "date": "2026-10-13", "class": "9A", "p": 4, "type": "substitute", "teacher": "Nöbetçi Öğretmen", "note": "" },
-    { "date": "2026-10-13", "class": "10B", "p": 2, "type": "room", "room": "Lab-2" },
-    { "date": "2026-10-13", "class": "all", "p": 5, "type": "moved", "note": "Spor salonunda" },
-    { "date": "2026-09-28", "class": "9A", "p": 2, "type": "room", "room": "Lab-2", "note": "" },
-    { "date": "2026-09-28", "class": "9A", "p": 3, "type": "cancelled", "note": "" },
-    { "date": "2026-09-29", "class": "9A", "p": 1, "type": "substitute", "teacher": "Nöbetçi Öğretmen", "note": "" }
+    {
+      "date": "2026-10-13",
+      "class": "9A",
+      "p": 3,
+      "type": "cancelled",
+      "note": ""
+    },
+    {
+      "date": "2026-10-13",
+      "class": "9A",
+      "p": 4,
+      "type": "substitute",
+      "teacher": "Nöbetçi Öğretmen",
+      "note": ""
+    },
+    {
+      "date": "2026-10-13",
+      "class": "10B",
+      "p": 2,
+      "type": "room",
+      "room": "Lab-2"
+    },
+    {
+      "date": "2026-10-13",
+      "class": "all",
+      "p": 5,
+      "type": "moved",
+      "note": "Spor salonunda"
+    },
+    {
+      "date": "2026-09-28",
+      "class": "9A",
+      "p": 2,
+      "type": "room",
+      "room": "Lab-2",
+      "note": ""
+    },
+    {
+      "date": "2026-09-28",
+      "class": "9A",
+      "p": 3,
+      "type": "cancelled",
+      "note": ""
+    },
+    {
+      "date": "2026-09-29",
+      "class": "9A",
+      "p": 1,
+      "type": "substitute",
+      "teacher": "Nöbetçi Öğretmen",
+      "note": ""
+    }
   ]
 }
