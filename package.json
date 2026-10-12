@@ -24,7 +24,7 @@
     "preact": "^10.26.4"
   },
   "devDependencies": {
-    "@playwright/test": "^1.49.1",
+    "@playwright/test": "^1.64.0",
     "@preact/preset-vite": "^2.10.1",
     "@types/dompurify": "^3.0.5",
     "@types/node": "^22.10.1",
